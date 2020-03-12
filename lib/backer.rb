@@ -10,8 +10,7 @@ class Backer
     end
 
     def backed_projects
-        array = ProjectBacker.all.select{ |x| x.backer == self }    
-        array.map{|x| x.project}        
+        ProjectBacker.all.select{|x| x.backer == self}.map{|y| y.project}                
     end
     
 end
