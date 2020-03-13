@@ -11,12 +11,13 @@ class Backer
     end
 
     def backed_projects
-        result = []
-        ProjectBacker.all.select do |instance|
-            if instance.backer == self
-                result << instance.project
-            end
-        end
-        result
+        # result = []
+        # ProjectBacker.all.select do |instance|
+        #     if instance.backer == self
+        #         result << instance.project
+        #     end
+        # end
+        # result
+        ProjectBacker.all.map {|instance| instance.backer == self ? instance.project : nil}.compact
     end
 end
