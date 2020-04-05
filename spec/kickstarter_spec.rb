@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+require 'pry'
 
 describe 'Backer - ::new' do
   it 'takes a name on initialization, accessible through an attribute reader' do
@@ -24,6 +25,7 @@ describe 'ProjectBacker' do
   describe '.all' do
     it 'is a class method that returns the @@all class variable' do
       ProjectBacker.class_variable_set(:@@all, ["I'm sorry, Jon"])
+      #binding.pry()
       expect(ProjectBacker.all).to eq(["I'm sorry, Jon"])
     end
   end
